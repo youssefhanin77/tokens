@@ -18,6 +18,26 @@ app.get('/', (req, res) => {
   </body>`)
 });
 
+client.on('ready', async () => {
+  console.log(`${client.user.username} is ready!`);
+})
+//ثبات فويس 24 ساعه v13 بدون اي مشاكل
+const { joinVoiceChannel } = require('@discordjs/voice');
+client.on('ready', () => {
+
+    setInterval( async () => {
+    client.channels.fetch(process.env.channel) 
+     .then((channel) => { 
+      const VoiceConnection = joinVoiceChannel({
+       channelId: channel.id, 
+       guildId: channel.guild.id, 
+       adapterCreator: channel.guild.voiceAdapterCreator 
+       });
+    }).catch((error) => { return; });
+    }, 1000)
+}); 
+
+
     const statuses = [
         ' 🇵🇸 | Palestine.js'
     ];
