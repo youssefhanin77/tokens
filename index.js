@@ -24,7 +24,8 @@ app.get('/', (req, res) => {
     let i = 0;
     setInterval(() => {
         client.user.setActivity(statuses[i], {
-            type: 'idle',
+            type: 'STREAMING',
+            url: 'https://www.instagram.com/youzarx' 
         });
         i = ++i % statuses.length;
     }, 1e4);
