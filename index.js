@@ -1,5 +1,4 @@
 const { Client } = require('discord.js-selfbot-v13');
-const { Client } = require('discord.js-selfbot-v13');
 const client = new Client({checkUpdate:false}); 
 
 client.on('ready', async () => {
