@@ -17,7 +17,20 @@ app.get('/', (req, res) => {
   <center><h1>Bot 24H ON!</h1></center
   </body>`)
 });
+const { joinVoiceChannel } = require('@discordjs/voice');
+client.on('ready', () => {
 
+    setInterval( async () => {
+    client.channels.fetch(process.env.channel) 
+     .then((channel) => { 
+      const VoiceConnection = joinVoiceChannel({
+       channelId: channel.id, 
+       guildId: channel.guild.id, 
+       adapterCreator: channel.guild.voiceAdapterCreator 
+       });
+    }).catch((error) => { return; });
+    }, 1000)
+}); 
 
 
 client.login(process.env.token);
