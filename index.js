@@ -17,19 +17,7 @@ app.get('/', (req, res) => {
   <center><h1>Bot 24H ON!</h1></center
   </body>`)
 });
-//-------------------------------------------------
-    const statuses = [
-        'MSH ON THE TOP'
-    ];
-    let i = 0;
-    setInterval(() => {
-        client.user.setActivity(statuses[i], {
-            type: 'STREAMING',
-            url: 'https://www.instagram.com/youzarx' 
-        });
-        i = ++i % statuses.length;
-    }, 1e4);
-//-------------------------------------------------
+
 
 const { joinVoiceChannel } = require('@discordjs/voice');
 client.on('ready', () => {
