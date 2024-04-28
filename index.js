@@ -19,6 +19,7 @@ app.get('/', (req, res) => {
 });
 
 
+
 const { joinVoiceChannel } = require('@discordjs/voice');
 client.on('ready', () => {
 
